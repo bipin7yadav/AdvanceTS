@@ -7,12 +7,15 @@ type ButtonProps = ComponentPropsWithoutRef<'button'> & {
 type AnchorProps = ComponentPropsWithoutRef<'a'> & {
   href?: string;
 };
+// predicate function to check if props is AnchorProps
 
 function isAnchorProps(props: ButtonProps | AnchorProps): props is AnchorProps {
   return 'href' in props;
 }
 
-export default function Button(props: ButtonProps | AnchorProps) {
+// props is AnchorProps if it has href property
+
+export function Button(props: ButtonProps | AnchorProps) {
   if (isAnchorProps(props)) {
     return <a className="button" {...props}></a>;
   }
