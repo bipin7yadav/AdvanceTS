@@ -5,8 +5,8 @@ function App() {
 
   return (
     <>
-    <Input label="Name" id="name" />
-    <Input label="Email" id="email" />
+    <Input label="Name" id="name" type="text" />
+    <Input label="Age" id="age" type="number" />
     </>
   )
 }
