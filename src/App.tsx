@@ -7,7 +7,8 @@ function App() {
 
   return (
     <main>
-      <Container as={Button} />
+      {/* <Container as={Button} /> */}
+      <Container as={Button}>Click Me </Container> 
       {/* <p>
         <Button >Click me</Button>
       </p>
