@@ -2,17 +2,25 @@ import { useState,useRef } from 'react'
 import Input from './components/Input'
 import { Button } from './components/Button.tsx';
 import Container from './components/Container.tsx';
-import Form from './components/Form.tsx';
+import Form,{type FormHandle} from './components/Form.tsx';
 
 function App() {
   // const input = useRef<HTMLInputElement>(null);
 
+  const customForm = useRef<FormHandle>(null);
+
   function handleSave(data: unknown) {
-    console.log(data);
-    
     const extractedData = data as { name: string; age: string };
     console.log(extractedData);
+    customForm.current?.clear();
   }
+
+  // function handleSave(data: unknown) {
+  //   console.log(data);
+    
+  //   const extractedData = data as { name: string; age: string };
+  //   console.log(extractedData);
+  // }
   return (
     <main>
       {/* <Container as={Button} /> */}
@@ -26,7 +34,7 @@ function App() {
     <Input label="Name" id="name" type="text" />
     <Input label="Age" id="age" type="number" /> */}
     {/* <Input label="Test" id="test" ref={input} /> */}
-    <Form onSave={handleSave}>
+    <Form onSave={handleSave} ref={customForm}>
         <Input type="text" label="Name" id="name" name='name' />
         <Input type="number" label="Age" id="age" name='age' />
         <p>
